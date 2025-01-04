@@ -1,4 +1,5 @@
 const express = require("express")
+const rotaLivro = require("./rotas/livro")
 
 //Criando a aplicação express
 const app = express()
@@ -6,10 +7,8 @@ const app = express()
 //Criando a rota
 const port = 8000
 
-//Criando as rotas
-app.get('/', (req, res) => {
-    res.send("Olá mundo")
-})
+//Ao acessar o endereço /livros, estaremos nos referindo à rotaLivro
+app.use('/livros', rotaLivro)
 
 //Escutar as respostas que ela recebe nessa porta
 app.listen(port, () => {
