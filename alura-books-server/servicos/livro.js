@@ -12,4 +12,15 @@ function getLivroPorId (id) {
     return livroFiltrado
 }
 
-module.exports = { getTodosLivros, getLivroPorId }
+function insereLivro (livroNovo) {
+    //Buscar a lista de livros no banco de dados
+    const livros = JSON.parse(fs.readFileSync("livros.json"))
+    //Adicionar o novo livro na lista
+    const novaListaDeLivros = [...livros, livroNovo]
+    
+    //sobescrevendo a lista antiga de livros com a lista nova
+    fs.writeFileSync("livros.json", JSON.stringify(novaListaDeLivros)
+    )
+}
+
+module.exports = { getTodosLivros, getLivroPorId, insereLivro }

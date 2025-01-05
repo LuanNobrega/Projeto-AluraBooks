@@ -4,6 +4,9 @@ const rotaLivro = require("./rotas/livro")
 //Criando a aplicação express
 const app = express()
 
+//Para usar textos do tipo JSON
+app.use(express.json())
+
 //Criando a rota
 const port = 8000
 
